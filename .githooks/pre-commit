@@ -1,6 +1,6 @@
 #!/bin/sh
 branch=$(git rev-parse --abbrev-ref HEAD)
-pattern='^(main|develop)$|^(feature|fix|chore|docs|refactor|test|ci)\/[a-z0-9._-]+$'
+pattern='^(main|develop)$|^(feature|fix|chore|docs|refactor|test|ci|cursor)\/[a-z0-9._-]+$'
 if [ "$branch" = "HEAD" ]; then
   exit 0
 fi

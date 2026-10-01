@@ -32,7 +32,10 @@ Use Conventional Commit messages, for example:
 - `fix: avoid duplicate service startup`
 - `docs: clarify release process`
 
-Commit messages are validated by commitlint in local hooks and CI.
+Commit messages are validated by commitlint in local hooks and CI. On
+default-branch pushes, GitHub-generated merge and squash commits are linted by
+subject only, because GitHub copies the pull request body into the commit
+message.
 
 ### Signed Commits (required)
 

@@ -42,7 +42,10 @@ jobs:
             exit 1
           fi
 
-          bun ./node_modules/@commitlint/cli/cli.js --from "$from_sha" --to "$to_sha" --verbose
+          # Push ranges include GitHub squash/merge commits whose bodies are the
+          # PR description (HTML footers, long URLs). Those commits are linted
+          # by subject only; pull request commits are still fully linted.
+          bun scripts/lint-commit-range.ts --from "$from_sha" --to "$to_sha"
 
   checks:
     needs: commitlint
